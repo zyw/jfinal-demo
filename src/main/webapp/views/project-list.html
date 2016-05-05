@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project List</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="${CONTEXT_PATH}/res/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="${CONTEXT_PATH}/res/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+
+    <link href="${CONTEXT_PATH}/res/css/animate.min.css" rel="stylesheet">
+    <link href="${CONTEXT_PATH}/res/css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    <link href="${CONTEXT_PATH}/res/css/project-list.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container" id="projects">
+        <input type="hidden" value="${CONTEXT_PATH}" v-model="contextPath">
+        <div class="col-sm-12 plt-warp">
+            <div class="project-list-title">项目列表</div> <div class="plt-line"></div>
+        </div>
+
+        <div class="col-sm-3 project-warp" v-for="project of list">
+            <a class="project-item animated" v-on:mouseOver="mover" v-on:mouseOut="mout" href="javascript:;">
+                <div class="project-name">{{ project.name }}</div>
+            </a>
+            <div class="project-muen">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-chevron-circle-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="javascript:;" v-on:click="editHander(project)">编辑</a>
+                    </li>
+                    <li><a href="draggable_panels.html#">删除</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-3 project-warp">
+            <a class="project-item add-project animated" v-on:mouseOver="mover" v-on:mouseOut="mout" href="#" data-toggle="modal" data-target="#projectFormModal">
+                <i class="fa fa-plus"></i>
+                <div class="add-title">添加项目</div>
+            </a>
+        </div>
+    </div>
+    <div class="modal inmodal" id="projectFormModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content animated flipInY">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">新建项目</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" method="post" action="${CONTEXT_PATH}/project/save" id="saveProjectForm">
+                        <input type="hidden" name="project.id">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">项目名称：</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" name="project.name" placeholder="项目名称(必填)" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">项目简介：</label>
+
+                            <div class="col-sm-8">
+                                <textarea placeholder="项目简介(可选)" name="project.summary" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" id="saveProjectBtn">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="${CONTEXT_PATH}/res/js/jquery.min63b9.js?v=2.1.4"></script>
+    <script src="${CONTEXT_PATH}/res/js/vue.min.js"></script>
+    <script src="${CONTEXT_PATH}/res/js/bootstrap.min14ed.js?v=3.3.6"></script>
+    <script src="${CONTEXT_PATH}/res/js/plugins/jquery-form/jquery.form.js"></script>
+    <script src="${CONTEXT_PATH}/res/js/plugins/layer/layer.js"></script>
+    <script type="text/javascript" src="${CONTEXT_PATH}/res/js/project-list.js"></script>
+</body>
+</html>

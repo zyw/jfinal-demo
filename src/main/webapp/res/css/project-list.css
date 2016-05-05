@@ -1,0 +1,56 @@
+.plt-warp {
+    margin-top: 10px;
+    line-height: 70px;
+}
+.project-list-title {
+    float: left;
+    margin-right: 10px;
+    font-size: 20px;
+}
+.plt-line {
+    float: left;
+    height: 1px;
+    width: 90%;
+    margin-top: 35px;
+    background: linear-gradient(to right,#343434,white);
+}
+.project-warp {
+    padding: 15px;
+}
+.project-item {
+    display: block;
+    height: 140px;
+    box-shadow: 0 10px 10px #999;
+    background: url("../img/pbg/1.jpg") no-repeat;
+}
+.project-warp .add-project {
+    background: #eee;
+    text-align: center;
+    padding-top: 35px;
+    font-size: 35px;
+    color: #666;
+}
+.project-warp .add-project:hover {
+    color: #0d8ddb;
+}
+.project-warp .add-project .add-title {
+    color: #666;
+    font-size: 20px;
+}
+.project-item .project-name {
+    color:#FFF;
+    padding-left: 10px;
+    padding-top: 5px;
+    font-size: 16px;
+    width: 80%;
+}
+
+.project-warp .project-muen {
+    position:absolute;
+    top: 22px;
+    right: 25px;
+    z-index: 200;
+}
+.project-warp .project-muen i {
+    color: #FFFFFF;
+}
