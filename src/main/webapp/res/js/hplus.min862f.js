@@ -23,6 +23,7 @@ $(document).ready(function() {
         $(".sidebard-panel").css("min-height", e + "px")
     }
     $("#side-menu").metisMenu(),
+
     $(".right-sidebar-toggle").click(function() {
         $("#right-sidebar").toggleClass("sidebar-open")
     }),

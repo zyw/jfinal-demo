@@ -1,16 +1,6 @@
 /**
  * Created by lenovo on 2016/5/3.
  */
-$(function(){
-    /*$(".project-item").on("mouseover",function(){
-        $(this).addClass("bounce");
-    });
-    $(".project-item").on("mouseout",function(){
-        $(this).removeClass("bounce");
-    });*/
-
-});
-
 var projects = new Vue({
     el:"#projects",
     data:{
@@ -26,6 +16,10 @@ var projects = new Vue({
         mout:function(event){
             $(event.target).removeClass("pulse");
         },
+        showDialog:function(){
+            $(".modal-title").text("添加项目");
+            $("#projectFormModal").modal('show');
+        },
         reload:function(){
             $.getJSON(this.contextPath+"/project/list",function(data){
                 projects.list = data;
@@ -37,6 +31,23 @@ var projects = new Vue({
             $("#saveProjectForm input[name='project.name']").val(project.name);
             $("#saveProjectForm textarea[name='project.summary']").val(project.summary);
             $("#projectFormModal").modal('show');
+        },
+        deleteHander:function(id){
+            var confirmId = layer.confirm('你确定要删除吗？', {
+                title:"提示",
+                btn: ['确定','取消'] //按钮
+            }, function(){
+                Vue.http.get(projects.contextPath+"/project/delete/"+id).then(function(response){
+                    if(response.ok && response.data.result){
+                        projects.reload();
+                        layer.close(confirmId);
+                    }else{
+                        layer.msg("删除项目信息失败！", {time: 4000, icon:2});
+                    }
+                }, function(response){
+                    layer.msg("删除项目信息异常！", {time: 4000, icon:2});
+                });
+            });
         }
     }
 });
@@ -47,6 +58,9 @@ $("#saveProjectForm").ajaxForm({
         if(responseText.status == 1){
             $("#projectFormModal").modal('hide');
             projects.reload();
+            if(responseText.operateType === "UPDATE"){
+                layer.msg("保存项目信息成功。", {time: 4000, icon:1});
+            }
         }else{
             layer.msg("保存项目信息异常！", {time: 4000, icon:2});
         }

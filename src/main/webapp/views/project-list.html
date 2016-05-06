@@ -30,13 +30,14 @@
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="javascript:;" v-on:click="editHander(project)">编辑</a>
                     </li>
-                    <li><a href="draggable_panels.html#">删除</a>
+                    <li><a href="javascript:;" v-on:click="deleteHander(project.id)">删除</a>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="col-sm-3 project-warp">
-            <a class="project-item add-project animated" v-on:mouseOver="mover" v-on:mouseOut="mout" href="#" data-toggle="modal" data-target="#projectFormModal">
+            <a class="project-item add-project animated" v-on:mouseOver="mover" v-on:mouseOut="mout"
+               href="javascript:;" v-on:click="showDialog" >
                 <i class="fa fa-plus"></i>
                 <div class="add-title">添加项目</div>
             </a>
@@ -77,6 +78,7 @@
     </div>
     <script src="${CONTEXT_PATH}/res/js/jquery.min63b9.js?v=2.1.4"></script>
     <script src="${CONTEXT_PATH}/res/js/vue.min.js"></script>
+    <script src="${CONTEXT_PATH}/res/js/vue-resource.min.js"></script>
     <script src="${CONTEXT_PATH}/res/js/bootstrap.min14ed.js?v=3.3.6"></script>
     <script src="${CONTEXT_PATH}/res/js/plugins/jquery-form/jquery.form.js"></script>
     <script src="${CONTEXT_PATH}/res/js/plugins/layer/layer.js"></script>
