@@ -10,7 +10,7 @@ import com.jfinal.core.Controller;
  */
 public class ProjectController extends Controller {
     public void index(){
-        render("/views/project-list.html");
+        //render("/views/project-list.vue");
     }
 
     public void save(){

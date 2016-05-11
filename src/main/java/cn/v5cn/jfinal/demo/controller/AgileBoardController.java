@@ -7,6 +7,6 @@ import com.jfinal.core.Controller;
  */
 public class AgileBoardController extends Controller {
     public void index(){
-        render("/views/agile-board.html");
+        render("/views/agile-board.vue");
     }
 }

@@ -14,7 +14,7 @@ public class IndexController extends Controller {
         renderFreeMarker("/index.html");
     }
 
-    public void main(){
+    /*public void main(){
         render("/views/main.html");
-    }
+    }*/
 }
