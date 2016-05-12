@@ -29,7 +29,7 @@ router.map({
     '/plist':{
         component:PList
     },
-    "/aboard":{
+    "/aboard/:pid":{
         component:ABoard
     }
 

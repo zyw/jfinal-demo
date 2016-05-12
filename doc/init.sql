@@ -1,0 +1,18 @@
+create table project(
+  id BIGINT AUTO_INCREMENT NOT NULL,
+  name varchar(100) NOT NULL COMMENT '项目名称',
+  summary VARCHAR(2000) COMMENT '项目简介',
+  status int(2) DEFAULT 1 COMMENT '项目状态，0: 禁用，1：启用，',
+  createAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  PRIMARY KEY(id)
+)ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8 COMMENT='项目表';
+
+create TABLE task_list(
+  id BIGINT AUTO_INCREMENT NOT NULL,
+  pid BIGINT NOT NULL COMMENT '项目ID',
+  name varchar(100) NOT NULL COMMENT '任务名称',
+  summary VARCHAR(2000) COMMENT '任务简介',
+  status int(2) DEFAULT 1 COMMENT '任务状态，0: 禁用，1：启用，',
+  createAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  PRIMARY KEY(id)
+)ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8 COMMENT='任务列表';

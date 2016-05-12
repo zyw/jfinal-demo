@@ -5,6 +5,7 @@ import cn.v5cn.jfinal.demo.controller.IndexController;
 import cn.v5cn.jfinal.demo.controller.ProjectController;
 import cn.v5cn.jfinal.demo.interceptor.AppInterceptor;
 import cn.v5cn.jfinal.demo.models.Project;
+import cn.v5cn.jfinal.demo.models.TaskList;
 import com.jfinal.config.*;
 import com.jfinal.ext.handler.ContextPathHandler;
 import com.jfinal.kit.PropKit;
@@ -36,6 +37,7 @@ public class AppConfig extends JFinalConfig {
         plugins.add(arp);
 
         arp.addMapping("project",Project.class);
+        arp.addMapping("task_list", TaskList.class);
     }
 
     @Override

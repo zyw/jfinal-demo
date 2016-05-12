@@ -44,7 +44,6 @@ public class ProjectController extends Controller {
     }
 
     public void list(){
-        Project project = getModel(Project.class);
-        renderJson(project.queryAll());
+        renderJson(Project.project.queryAll());
     }
 }
